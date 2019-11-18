@@ -1,0 +1,28 @@
+{
+  "name": "tsas-cdk",
+  "version": "0.0.1",
+  "description": "Parameter manager for AWS CDK TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cm-wada-yusuke/tsas-cdk.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "AWS",
+    "CDK",
+    "Systems",
+    "Manager",
+    "Parameter",
+    "Store"
+  ],
+  "author": "Yusuke Wada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cm-wada-yusuke/tsas-cdk/issues"
+  },
+  "homepage": "https://github.com/cm-wada-yusuke/tsas-cdk#readme"
+}
