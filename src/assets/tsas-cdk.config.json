@@ -1,5 +1,4 @@
 {
-  "srcParameterOutputDir": "src/",
-  "testParameterOutputDir": "test/",
-  "cdkEnvironmentContextName": "env"
+  "srcParameterOutputDir": "lib/",
+  "testParameterOutputDir": "test/"
 }

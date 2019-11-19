@@ -1,9 +1,13 @@
 const nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-    entry: './src/tsas-cdk.ts',
+    entry: {
+        index: './src/tsas-cdk.ts',
+        param: './src/tsas-cdk-param.ts',
+    },
     target: 'node',
     node: {
         __dirname: false,
@@ -13,7 +17,8 @@ module.exports = {
     devtool: 'inline-source-map',
     externals: [nodeExternals()],
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
+        path: path.resolve(__dirname + '/dist'),
     },
     module: {
         rules: [
