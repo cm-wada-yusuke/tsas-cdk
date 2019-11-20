@@ -1,11 +1,11 @@
 [
   {
     "Name": "Env",
-    "Value": "dev"
+    "Value": "stg"
   },
   {
     "Name": "ExternalServiceAccessKey",
-    "Value": "ABXY-dev",
+    "Value": "ABXY-stg",
     "SecureString": true
-  },
+  }
 ]

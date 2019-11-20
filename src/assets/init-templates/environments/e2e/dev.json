@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "Env",
+    "Value": "dev"
+  },
+  {
+    "Name": "ExternalServiceAccessKey",
+    "Value": "ABXY-dev",
+    "SecureString": true
+  }
+]

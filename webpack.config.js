@@ -1,12 +1,13 @@
 const nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
     entry: {
         index: './src/tsas-cdk.ts',
+        initialize: './src/tsas-cdk-initialize.ts',
         param: './src/tsas-cdk-param.ts',
+        default: './src/default.ts',
     },
     target: 'node',
     node: {
@@ -37,10 +38,10 @@ module.exports = {
             {
                 from: './src/assets',
             },
+            // FIXME いらない
+            {
+                from: './package.json',
+            },
         ]),
-        new webpack.DefinePlugin({
-            APP_VERSION: JSON.stringify(require('./package.json').version),
-            APP_NAME: JSON.stringify(require('./package.json').name),
-        }),
     ],
 };

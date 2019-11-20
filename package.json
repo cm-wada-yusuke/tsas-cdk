@@ -34,19 +34,20 @@
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
     "@types/node": "^12.12.8",
+    "@types/readline-sync": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
-    "commander": "^4.0.1",
     "copy-webpack-plugin": "^5.0.5",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.6.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "fs-extra": "^8.1.0",
     "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
     "prettier": "^1.19.1",
+    "source-map-support": "^0.5.16",
     "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.2",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
@@ -63,5 +64,12 @@
       "npm run lint",
       "git add"
     ]
+  },
+  "dependencies": {
+    "aws-sdk": "^2.575.0",
+    "colors": "^1.4.0",
+    "commander": "^4.0.1",
+    "fs-extra": "^8.1.0",
+    "readline-sync": "^1.4.10"
   }
 }
