@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base",
+  "include": [
+    "./lib/**/*.ts"
+  ],
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "./dist/lib"
+  }
+}

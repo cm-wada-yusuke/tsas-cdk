@@ -1,3 +1,4 @@
+import 'source-map-support/register';
 import { LocalVariable, ParameterCommandOptions } from './param';
 import { loadUserConfig } from '../../config/config';
 import { list } from './param-list';

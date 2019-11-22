@@ -1,10 +1,11 @@
+import 'source-map-support/register';
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as readlineSync from 'readline-sync';
 import { print, success, warning } from '../../config/logging';
 
-const camelCase = require('camelcase');
-const decamelize = require('decamelize');
+import camelCase from 'camelcase';
+import decamelize from 'decamelize';
 
 type InitReadlineConf = {
     appName: string;
@@ -83,7 +84,12 @@ const installFilesRecursive = async (
 export const init = async (): Promise<void> => {
     print('initialize');
     const conf: InitReadlineConf = readlineForConfig();
-    const templatesDir = path.join(__dirname, 'init-templates');
+    const templatesDir = path.join(
+        __dirname,
+        '../../',
+        'assets',
+        'init-templates',
+    );
     const currentDir = process.cwd();
     await installFilesRecursive(templatesDir, currentDir, conf);
 

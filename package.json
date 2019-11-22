@@ -6,14 +6,17 @@
   "bin": {
     "tsas-cdk": "bin/tsas-cdk.js"
   },
-  "main": "dist/lib/index.js",
+  "main": "dist/lib/tsas-parameter-manager.ts",
   "scripts": {
-    "build": "webpack",
+    "build": "npm run build:cli && npm run build:lib && npm run build:assets",
+    "build:cli": "tsc -p ./tsconfig.cli.json",
+    "build:lib": "tsc -p ./tsconfig.lib.json",
+    "build:assets": "shx mkdir -p ./dist/cli/assets && shx cp -R ./src/assets ./dist/cli ",
     "test": "jest",
-    "watch": "webpack --config webpack.config.js --watch",
     "lint": "eslint './{lib,src,test}/**/*.{ts,tsx}'",
     "lint-fix": "eslint --fix './{lib,src,test}/**/*.{ts,tsx}'",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "clean": "shx rm -rf ./dist && shx rm -rf './{src,lib}/**/*.js' && del shx rm -rf './{src,lib}/**/*.d.ts'"
   },
   "repository": {
     "type": "git",
@@ -38,8 +41,7 @@
     "@types/readline-sync": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
-    "copy-webpack-plugin": "^5.0.5",
-    "dts-bundle-webpack": "^1.0.2",
+    "del-cli": "^3.0.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.6.0",
     "eslint-plugin-node": "^10.0.0",
@@ -47,13 +49,12 @@
     "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "shx": "^0.3.2",
     "source-map-support": "^0.5.16",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.2",
-    "typescript": "^3.7.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-node-externals": "^1.7.2"
+    "typescript": "^3.7.2"
   },
   "husky": {
     "hooks": {
@@ -69,8 +70,10 @@
   },
   "dependencies": {
     "aws-sdk": "^2.575.0",
+    "camelcase": "^5.3.1",
     "colors": "^1.4.0",
     "commander": "^4.0.1",
+    "decamelize": "^3.2.0",
     "fs-extra": "^8.1.0",
     "readline-sync": "^1.4.10"
   }

@@ -9,16 +9,16 @@ tsasCdk
     .option('-v --verbose', 'verbose logging mode');
 
 tsasCdk.command('init', 'Init filles', {
-    executableFile: path.join(__dirname, 'initialize.js'),
+    executableFile: path.join(__dirname, 'tsas-cdk-initialize.js'),
 });
 tsasCdk.command(
     'param',
     'Manage application parameters, [push-all|push-single|list]',
-    { executableFile: path.resolve(__dirname + '/param.js') },
+    { executableFile: path.join(__dirname, 'tsas-cdk-param.js') },
 );
 
 tsasCdk.command('default', 'unknown command', {
     isDefault: true,
-    executableFile: path.resolve(__dirname + '/default.js'),
+    executableFile: path.join(__dirname, 'default.js'),
 });
 tsasCdk.parse(process.argv);

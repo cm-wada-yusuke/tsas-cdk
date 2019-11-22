@@ -4,6 +4,7 @@ test/
 .DS_Store
 
 .eslintrc.js
+.eslintignore
 .prettierrc.json
 tsconfig.json
 webpack.config.js

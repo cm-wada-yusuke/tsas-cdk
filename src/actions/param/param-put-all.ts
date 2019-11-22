@@ -1,3 +1,4 @@
+import 'source-map-support/register';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { LocalVariable, ParameterCommandOptions } from './param';

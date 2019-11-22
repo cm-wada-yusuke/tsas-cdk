@@ -1,3 +1,4 @@
+import 'source-map-support/register';
 import * as Console from 'console';
 import { ParameterCommandOptions } from './param';
 import { ssmListParameters } from '../../infrastructures/ssm';

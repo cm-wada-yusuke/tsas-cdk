@@ -11,7 +11,7 @@ type AppConfig = {
     appVersion: string;
 };
 const loadPackageJson = (): AppConfig => {
-    const configPath = path.resolve(__dirname + '/package.json');
+    const configPath = path.join(__dirname, '../../../', 'package.json');
     const jsonString: string = fs.readFileSync(configPath, 'utf8');
     const conf = JSON.parse(jsonString);
     return {
