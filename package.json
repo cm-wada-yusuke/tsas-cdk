@@ -1,6 +1,6 @@
 {
   "name": "tsas-cdk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Parameter manager for AWS CDK TypeScript.",
   "preferGlobal": true,
   "bin": {
