@@ -6,7 +6,7 @@
   "bin": {
     "tsas-cdk": "bin/tsas-cdk.js"
   },
-  "main": "dist/lib/tsas-parameter-manager.ts",
+  "main": "dist/lib/tsas-parameter-manager.js",
   "scripts": {
     "build": "npm run build:cli && npm run build:lib && npm run build:assets",
     "build:cli": "tsc -p ./tsconfig.cli.json",
