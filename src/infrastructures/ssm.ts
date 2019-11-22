@@ -4,6 +4,7 @@ import SSM, {
 } from 'aws-sdk/clients/ssm';
 import { loadUserConfig } from '../config/config';
 import { LocalVariable, StoredParameter } from '../actions/param/param';
+import { print } from '../config/logging';
 
 const ssm = new SSM({
     apiVersion: '2014-11-06',
@@ -32,8 +33,10 @@ export const ssmListParameters = async (
     division: string,
     env: string,
 ): Promise<StoredParameter[]> => {
+    const searchPath = `/${appName}/${division}/${env}`;
+    print(`search path: ${searchPath}`);
     const parameters: GetParametersByPathRequest = {
-        Path: `/${appName}/${division}/${env}`,
+        Path: searchPath,
         Recursive: true,
         WithDecryption: true,
         MaxResults: 2,
@@ -43,7 +46,6 @@ export const ssmListParameters = async (
         const response = await ssm.getParametersByPath(parameters).promise();
         parameters.NextToken = response.NextToken;
         if (response.Parameters) {
-            // Console.log(response.Parameters);
             result = result.concat(response.Parameters as StoredParameter[]);
         }
     } while (parameters.NextToken);

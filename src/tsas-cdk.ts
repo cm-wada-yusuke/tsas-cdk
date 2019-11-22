@@ -1,6 +1,5 @@
 import 'source-map-support/register';
 import * as commander from 'commander';
-import * as Console from 'console';
 import * as path from 'path';
 import { tsasConfig } from './config/config';
 
@@ -9,7 +8,6 @@ tsasCdk
     .version(tsasConfig.appVersion)
     .option('-v --verbose', 'verbose logging mode');
 
-Console.log('main');
 tsasCdk.command('init', 'Init filles', {
     executableFile: path.join(__dirname, 'initialize.js'),
 });

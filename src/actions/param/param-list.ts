@@ -16,6 +16,5 @@ export const list = async (opts: ParameterCommandOptions): Promise<void> => {
 export const paramList = async (
     opts: ParameterCommandOptions,
 ): Promise<void> => {
-    Console.log('listParam', opts);
     await list(opts);
 };

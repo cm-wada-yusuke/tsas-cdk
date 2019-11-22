@@ -6,6 +6,7 @@
   "bin": {
     "tsas-cdk": "bin/tsas-cdk.js"
   },
+  "main": "dist/lib/index.js",
   "scripts": {
     "build": "webpack",
     "test": "jest",
@@ -38,6 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
     "copy-webpack-plugin": "^5.0.5",
+    "dts-bundle-webpack": "^1.0.2",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.6.0",
     "eslint-plugin-node": "^10.0.0",

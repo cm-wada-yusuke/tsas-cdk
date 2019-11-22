@@ -42,8 +42,6 @@ param
         'app',
     );
 
-Console.log('param');
-
 // list
 param.command('list').action(() => paramList(parseOption(param.opts())));
 

@@ -1,6 +1,7 @@
 const nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const DtsBundleWebpack = require('dts-bundle-webpack');
 
 module.exports = {
     entry: {
@@ -8,6 +9,7 @@ module.exports = {
         initialize: './src/tsas-cdk-initialize.ts',
         param: './src/tsas-cdk-param.ts',
         default: './src/default.ts',
+        'lib/index': './src/lib/tsas-parameter-manager.ts',
     },
     target: 'node',
     node: {
@@ -38,10 +40,13 @@ module.exports = {
             {
                 from: './src/assets',
             },
-            // FIXME いらない
-            {
-                from: './package.json',
-            },
         ]),
+        new DtsBundleWebpack({
+            name: 'tsas-cdk',
+            main: path.resolve('src/lib/tsas-parameter-manager.d.ts'),
+            out: path.resolve('dist/lib/index.d.ts'),
+            removeSource: true,
+            outputAsModuleFolder: true,
+        }),
     ],
 };

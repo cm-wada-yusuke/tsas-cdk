@@ -20,8 +20,6 @@ const loadPackageJson = (): AppConfig => {
 };
 
 export const loadUserConfig = (): UserConfig => {
-    //FIXME to use user file
-    // const configPath = path.resolve(__dirname + '/tsas-cdk.config.json');
     const configPath = path.resolve('tsas-cdk.config.json');
     const jsonString: string = fs.readFileSync(configPath, 'utf8');
     return JSON.parse(jsonString) as UserConfig;

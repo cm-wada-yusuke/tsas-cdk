@@ -1,5 +1,6 @@
 import colors = require('colors/safe');
 import util = require('util');
+import * as Console from 'console';
 
 // tslint:disable:no-console the whole point of those methods is precisely to output to the console...
 
@@ -10,33 +11,37 @@ export function setVerbose(enabled = true): void {
 }
 
 export function error(fmt: string, ...args: any[]): void {
-    console.error(colors.red(util.format(fmt, ...args)));
+    Console.error(colors.red(util.format(fmt, ...args)));
 }
 
 export function debug(fmt: string, ...args: any[]): void {
     if (isVerbose) {
-        console.error(colors.gray(util.format(fmt, ...args)));
+        Console.error(colors.gray(util.format(fmt, ...args)));
     }
 }
 
 export function highlight(fmt: string, ...args: any[]): void {
-    console.error(colors.bold(colors.white(util.format(fmt, ...args))));
+    Console.error(colors.bold(colors.white(util.format(fmt, ...args))));
 }
 
 export function success(fmt: string, ...args: any[]): void {
-    console.error(colors.green(util.format(fmt, ...args)));
+    Console.error(colors.green(util.format(fmt, ...args)));
 }
 
 export function warning(fmt: string, ...args: any[]): void {
-    console.error(colors.yellow(util.format(fmt, ...args)));
+    Console.error(colors.yellow(util.format(fmt, ...args)));
 }
 
 export function print(fmt: string, ...args: any[]): void {
-    console.error(colors.white(util.format(fmt, ...args)));
+    Console.error(colors.white(util.format(fmt, ...args)));
 }
 
 export function data(fmt: string, ...args: any[]): void {
-    console.log(util.format(fmt, ...args));
+    Console.log(util.format(fmt, ...args));
+}
+
+export function section(): void {
+    Console.log('\n\n');
 }
 
 export type LoggerFunction = (fmt: string, ...args: any[]) => void;

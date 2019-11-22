@@ -1,21 +1,20 @@
-import * as Console from 'console';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { LocalVariable, ParameterCommandOptions } from './param';
 import { loadUserConfig } from '../../config/config';
-import colors from 'colors/safe';
 import { list } from './param-list';
 import { ssmPutParameter } from '../../infrastructures/ssm';
+import { section, success } from '../../config/logging';
+import * as Console from 'console';
 
 // load variable files
 const loadEnvironmentFile = (
     opts: ParameterCommandOptions,
 ): LocalVariable[] => {
-    // FIXME __dirname はいらない
     const envPath = path.resolve(
-        __dirname + `/environments/${opts.division}/${opts.env}.json`,
+        `environments/${opts.division}/${opts.env}.json`,
     );
-    Console.log(colors.green(`using: ${envPath}`));
+    success(`using: ${envPath}`);
     return (JSON.parse(
         fs.readFileSync(envPath, { encoding: 'utf8' }),
     ) as any[]).map(v => ({
@@ -39,9 +38,17 @@ const putAll = async (
 export const paramPutAll = async (
     opts: ParameterCommandOptions,
 ): Promise<void> => {
-    Console.log('paramPutAll', opts);
     const envs = loadEnvironmentFile(opts);
+    success('your file: \n');
     Console.log(envs);
+    section();
+
+    success('putting parameters... ');
     await putAll(envs, opts);
+    success('done.');
+    section();
+
+    success('parameter store: \n');
     await list(opts);
+    section();
 };
