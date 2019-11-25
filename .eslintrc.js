@@ -12,7 +12,11 @@ module.exports = {
     plugins: ['node', '@typescript-eslint'],
     parserOptions: {
         sourceType: 'module',
-        project: './tsconfig.base.json',
+        project: [
+          './tsconfig.base.json',
+          './tsconfig.cli.json',
+          './tsconfig.lib.json'
+        ],
     },
     rules: {
         semi: 'off',

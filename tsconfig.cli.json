@@ -4,7 +4,7 @@
     "./src/**/*.ts"
   ],
   "compilerOptions": {
-     "declaration": false,
-     "outDir": "./dist/cli"
+    "declaration": false,
+    "outDir": "./dist/cli"
   }
 }

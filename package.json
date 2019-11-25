@@ -7,6 +7,7 @@
     "tsas-cdk": "bin/tsas-cdk.js"
   },
   "main": "dist/lib/tsas-parameter-manager.js",
+  "types": "dist/lib/tsas-parameter-manager.d.ts",
   "scripts": {
     "build": "npm run build:cli && npm run build:lib && npm run build:assets",
     "build:cli": "tsc -p ./tsconfig.cli.json",
@@ -16,7 +17,7 @@
     "lint": "eslint './{lib,src,test}/**/*.{ts,tsx}'",
     "lint-fix": "eslint --fix './{lib,src,test}/**/*.{ts,tsx}'",
     "lint-staged": "lint-staged",
-    "clean": "shx rm -rf ./dist && shx rm -rf './{src,lib}/**/*.js' && del shx rm -rf './{src,lib}/**/*.d.ts'"
+    "clean": "shx rm -rf ./dist && shx rm -rf './{src,lib}/**/*.js' && shx rm -rf './{src,lib}/**/*.d.ts'"
   },
   "repository": {
     "type": "git",
