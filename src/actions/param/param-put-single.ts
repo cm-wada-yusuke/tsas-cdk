@@ -12,15 +12,15 @@ const put = async (
     await ssmPutParameter(
         loadUserConfig().appName,
         opts.division,
-        opts.env,
+        opts.stage,
         variable,
     );
 };
 
 export const paramPutSingle = async (
-    env: LocalVariable,
+    stage: LocalVariable,
     opts: ParameterCommandOptions,
 ): Promise<void> => {
-    await put(env, opts);
+    await put(stage, opts);
     await list(opts);
 };

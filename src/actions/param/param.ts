@@ -1,5 +1,5 @@
 export type ParameterCommandOptions = {
-    env: string;
+    stage: string;
     division: string;
 };
 

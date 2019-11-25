@@ -12,12 +12,12 @@ import * as Console from 'console';
 const loadEnvironmentFile = (
     opts: ParameterCommandOptions,
 ): LocalVariable[] => {
-    const envPath = path.resolve(
-        `environments/${opts.division}/${opts.env}.json`,
+    const stagePath = path.resolve(
+        `environments/${opts.division}/${opts.stage}.json`,
     );
-    success(`using: ${envPath}`);
+    success(`using: ${stagePath}`);
     return (JSON.parse(
-        fs.readFileSync(envPath, { encoding: 'utf8' }),
+        fs.readFileSync(stagePath, { encoding: 'utf8' }),
     ) as any[]).map(v => ({
         key: v.Name,
         value: v.Value,
@@ -31,7 +31,7 @@ const putAll = async (
     opts: ParameterCommandOptions,
 ): Promise<void> => {
     const putPromises = localVariables.map(v =>
-        ssmPutParameter(loadUserConfig().appName, opts.division, opts.env, v),
+        ssmPutParameter(loadUserConfig().appName, opts.division, opts.stage, v),
     );
     await Promise.all(putPromises);
 };

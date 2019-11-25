@@ -10,8 +10,8 @@
   "types": "dist/lib/tsas-parameter-manager.d.ts",
   "scripts": {
     "build": "npm run build:cli && npm run build:lib && npm run build:assets",
-    "build:cli": "tsc -p ./tsconfig.cli.json",
-    "build:lib": "tsc -p ./tsconfig.lib.json",
+    "build:cli": "tsc -p tsconfig.cli.json",
+    "build:lib": "tsc -p tsconfig.lib.json",
     "build:assets": "shx mkdir -p ./dist/cli/assets && shx cp -R ./src/assets ./dist/cli ",
     "test": "jest",
     "lint": "eslint './{lib,src,test}/**/*.{ts,tsx}'",

@@ -7,7 +7,7 @@ import * as fs from 'fs-extra';
 
 export class TsasParameterManager {
     readonly appName: string;
-    readonly env: string;
+    readonly stage: string;
     readonly division: string;
     readonly region: string;
 
@@ -16,11 +16,11 @@ export class TsasParameterManager {
     /**
      * Construct parameter manager.
      * `new TsasParameterManager()` make a aws-sdk ssm instance.
-     * @param env Environment name, such as 'dev', 'stg', 'prd'. Typically you can get the value from aws-cdk context.
+     * @param stage Environment name, such as 'dev', 'stg', 'prd'.
      * @param division Division name. Same as environment file name.
      */
-    constructor(env: string, division: string) {
-        this.env = env;
+    constructor(stage: string, division: string) {
+        this.stage = stage;
         this.division = division;
         const configPath = path.resolve('tsas-cdk.config.json');
         const jsonString: string = fs.readFileSync(configPath, 'utf8');
@@ -39,7 +39,7 @@ export class TsasParameterManager {
      */
     async load(division: string = this.division): Promise<TsasParameters> {
         const ssmListParameters = async (): Promise<TsasParameter[]> => {
-            const searchPath = `/${this.appName}/${division}/${this.env}`;
+            const searchPath = `/${this.appName}/${division}/${this.stage}`;
             const parameters: GetParametersByPathRequest = {
                 Path: searchPath,
                 Recursive: true,
@@ -95,7 +95,7 @@ export class TsasParameterManager {
         secure = false,
     ): Promise<void> {
         const putParameters: PutParameterRequest = {
-            Name: `/${this.appName}/${division}/${this.env}/${key}`,
+            Name: `/${this.appName}/${division}/${this.stage}/${key}`,
             Value: value,
             Type: secure ? 'SecureString' : 'String',
             Overwrite: true,

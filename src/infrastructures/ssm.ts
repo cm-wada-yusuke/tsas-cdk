@@ -15,11 +15,11 @@ const ssm = new SSM({
 export const ssmPutParameter = async (
     appName: string,
     division: string,
-    env: string,
+    stage: string,
     variable: LocalVariable,
 ): Promise<void> => {
     const putParameters: PutParameterRequest = {
-        Name: `/${appName}/${division}/${env}/${variable.key}`,
+        Name: `/${appName}/${division}/${stage}/${variable.key}`,
         Value: variable.value,
         Type: variable.secureStringFlag ? 'SecureString' : 'String',
         Overwrite: true,
@@ -31,9 +31,9 @@ export const ssmPutParameter = async (
 export const ssmListParameters = async (
     appName: string,
     division: string,
-    env: string,
+    stage: string,
 ): Promise<StoredParameter[]> => {
-    const searchPath = `/${appName}/${division}/${env}`;
+    const searchPath = `/${appName}/${division}/${stage}`;
     print(`search path: ${searchPath}`);
     const parameters: GetParametersByPathRequest = {
         Path: searchPath,

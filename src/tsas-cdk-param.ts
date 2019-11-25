@@ -11,7 +11,7 @@ const parseOption = (opts: {
     [key: string]: string;
 }): ParameterCommandOptions => {
     return {
-        env: opts.env,
+        stage: opts.stage,
         division: opts.division,
     };
 };
@@ -35,7 +35,7 @@ const param = new commander.Command();
 // global options
 param
     .version(tsasConfig.appVersion)
-    .requiredOption('-e, --env <env>', 'parameter environment name')
+    .requiredOption('-s, --stage <stage>', 'parameter stage name')
     .option(
         '-d, --division <division>',
         'parameter division, such as "app", "e2e"',

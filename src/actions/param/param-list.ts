@@ -9,7 +9,7 @@ export const list = async (opts: ParameterCommandOptions): Promise<void> => {
     const param = await ssmListParameters(
         loadUserConfig().appName,
         opts.division,
-        opts.env,
+        opts.stage,
     );
     Console.log(param);
 };
