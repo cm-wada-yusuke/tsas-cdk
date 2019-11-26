@@ -104,13 +104,13 @@ export class TsasParameterManager {
     }
 }
 
-type TsasParameter = {
+export type TsasParameter = {
     Name: string;
     Type: string;
     Version: number;
     ARN: string;
 };
 
-type TsasParameters = {
+export type TsasParameters = {
     [key: string]: TsasParameter;
 };
