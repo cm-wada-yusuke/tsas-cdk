@@ -95,12 +95,29 @@ export class TsasParameterManager {
         secure = false,
     ): Promise<void> {
         const putParameters: PutParameterRequest = {
-            Name: `/${this.appName}/${division}/${this.stage}/${key}`,
+            Name: this.fullKeyOf(key, this.appName, division, this.stage),
             Value: value,
             Type: secure ? 'SecureString' : 'String',
             Overwrite: true,
         };
         await this.ssm.putParameter(putParameters).promise();
+    }
+
+    /**
+     * Generate Parameter Store full key. ex: '/helloApp/e2e/stg/HelloAppEndpointUrl'
+     * @param key key name of parameter.
+     * @param appName application name. Default: appName of tsas-cdk.config.json
+     * @param division where to use. default: constructor division.
+     * @param stage stage name. default: constructor stage.
+     * @return `/${appName}/${division}/${stage}/${key}`
+     */
+    fullKeyOf(
+        key: string,
+        appName: string = this.appName,
+        division: string = this.division,
+        stage: string = this.stage,
+    ): string {
+        return `/${appName}/${division}/${stage}/${key}`;
     }
 }
 
