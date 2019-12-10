@@ -123,6 +123,7 @@ export class TsasParameterManager {
 
 export type TsasParameter = {
     Name: string;
+    Value: string;
     Type: string;
     Version: number;
     ARN: string;
