@@ -106,15 +106,15 @@ export class TsasParameterManager {
     /**
      * Generate Parameter Store full key. ex: '/helloApp/e2e/stg/HelloAppEndpointUrl'
      * @param key key name of parameter.
-     * @param appName application name. Default: appName of tsas-cdk.config.json
      * @param division where to use. default: constructor division.
+     * @param appName application name. Default: appName of tsas-cdk.config.json
      * @param stage stage name. default: constructor stage.
      * @return `/${appName}/${division}/${stage}/${key}`
      */
     fullKeyOf(
         key: string,
-        appName: string = this.appName,
         division: string = this.division,
+        appName: string = this.appName,
         stage: string = this.stage,
     ): string {
         return `/${appName}/${division}/${stage}/${key}`;
