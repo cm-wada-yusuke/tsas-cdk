@@ -7,6 +7,7 @@ import { list } from './param-list';
 import { ssmPutParameter } from '../../infrastructures/ssm';
 import { section, success } from '../../config/logging';
 import * as Console from 'console';
+import { RateLimitDelayPromise } from 'rate-limit-delay-promise';
 
 // load variable files
 const loadEnvironmentFile = (
@@ -30,10 +31,15 @@ const putAll = async (
     localVariables: LocalVariable[],
     opts: ParameterCommandOptions,
 ): Promise<void> => {
-    const putPromises = localVariables.map(v =>
-        ssmPutParameter(loadUserConfig().appName, opts.division, opts.stage, v),
-    );
-    await Promise.all(putPromises);
+    const put = (v: LocalVariable): Promise<void> => {
+        return ssmPutParameter(
+            loadUserConfig().appName,
+            opts.division,
+            opts.stage,
+            v,
+        );
+    };
+    await RateLimitDelayPromise.all(localVariables, put, 500);
 };
 
 export const paramPutAll = async (

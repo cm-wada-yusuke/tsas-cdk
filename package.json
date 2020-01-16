@@ -38,15 +38,15 @@
   "homepage": "https://github.com/cm-wada-yusuke/tsas-cdk#readme",
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
-    "@types/node": "^12.12.16",
+    "@types/node": "^12.12.24",
     "@types/readline-sync": "^1.4.3",
-    "@typescript-eslint/eslint-plugin": "^2.11.0",
-    "@typescript-eslint/parser": "^2.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
     "del-cli": "^3.0.0",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
@@ -54,8 +54,8 @@
     "shx": "^0.3.2",
     "source-map-support": "^0.5.16",
     "ts-loader": "^6.2.1",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.3"
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.4"
   },
   "husky": {
     "hooks": {
@@ -70,12 +70,13 @@
     ]
   },
   "dependencies": {
-    "aws-sdk": "^2.586.0",
+    "aws-sdk": "^2.604.0",
     "camelcase": "^5.3.1",
     "colors": "^1.4.0",
-    "commander": "^4.0.1",
+    "commander": "^4.1.0",
     "decamelize": "^3.2.0",
     "fs-extra": "^8.1.0",
+    "rate-limit-delay-promise": "0.0.2",
     "readline-sync": "^1.4.10"
   }
 }
