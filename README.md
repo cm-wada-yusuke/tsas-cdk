@@ -139,18 +139,24 @@ What your default region? [ap-northeast-1]
 ### Push `dev` stage parameters using file 
 
 ```bash
-iter
+tsas-cdk param put-all --stage dev
+
+putting parameters...
+done.
 ```
 
 ### Push individual parameter, such as SaaS token.
 
 
 ```bash
+tsas-cdk param put-single -s dev GitHubToken XXXXXXXXXXYYYYYYYYYYYY --secure
 ```
 
 
-### List `app` division parameters 
+### List `app`, `e2e` division parameters 
 
 ```bash
+tsas-cdk param list --stage dev
+tsas-cdk param list --stage dev --division e2e
 ```
 
