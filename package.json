@@ -52,7 +52,6 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "shx": "^0.3.2",
-    "source-map-support": "^0.5.16",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.4"
@@ -77,6 +76,7 @@
     "decamelize": "^3.2.0",
     "fs-extra": "^8.1.0",
     "rate-limit-delay-promise": "0.0.2",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "source-map-support": "^0.5.16"
   }
 }
