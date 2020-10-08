@@ -1,5 +1,4 @@
 import 'source-map-support/register';
-import * as Console from 'console';
 import { ParameterCommandOptions } from './param';
 import { ssmListParameters } from '../../infrastructures/ssm';
 import { loadUserConfig } from '../../config/config';
@@ -11,7 +10,7 @@ export const list = async (opts: ParameterCommandOptions): Promise<void> => {
         opts.division,
         opts.stage,
     );
-    Console.log(param);
+    console.log(param);
 };
 
 export const paramList = async (

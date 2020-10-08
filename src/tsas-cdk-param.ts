@@ -1,7 +1,6 @@
 import 'source-map-support/register';
 import * as commander from 'commander';
 import { paramPutAll } from './actions/param/param-put-all';
-import * as Console from 'console';
 import { LocalVariable, ParameterCommandOptions } from './actions/param/param';
 import { tsasConfig } from './config/config';
 import { paramList } from './actions/param/param-list';
@@ -61,7 +60,7 @@ param
     );
 
 param.command('*').action(() => {
-    Console.error(
+    console.error(
         `Invalid command: ${param.args}\nSee --help for a list of available commands.`,
     ),
         param.help();

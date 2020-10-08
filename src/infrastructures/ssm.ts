@@ -4,7 +4,6 @@ import SSM, {
 } from 'aws-sdk/clients/ssm';
 import { loadUserConfig } from '../config/config';
 import { LocalVariable, StoredParameter } from '../actions/param/param';
-import { print } from '../config/logging';
 
 const ssm = new SSM({
     apiVersion: '2014-11-06',
@@ -34,7 +33,6 @@ export const ssmListParameters = async (
     stage: string,
 ): Promise<StoredParameter[]> => {
     const searchPath = `/${appName}/${division}/${stage}`;
-    print(`search path: ${searchPath}`);
     const parameters: GetParametersByPathRequest = {
         Path: searchPath,
         Recursive: true,
