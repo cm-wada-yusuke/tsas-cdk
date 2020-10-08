@@ -3,7 +3,7 @@ import * as commander from 'commander';
 import { paramPutAll } from './actions/param/param-put-all';
 import { LocalVariable, ParameterCommandOptions } from './actions/param/param';
 import { tsasConfig } from './config/config';
-import { paramList } from './actions/param/param-list';
+import { paramGet, paramList } from './actions/param/param-list';
 import { paramPutSingle } from './actions/param/param-put-single';
 
 const parseOption = (opts: {
@@ -43,6 +43,12 @@ param
 
 // list
 param.command('list').action(() => paramList(parseOption(param.opts())));
+
+// get
+param
+    .command('get')
+    .arguments('<name>')
+    .action((name: string) => paramGet(name, parseOption(param.opts())));
 
 // put-all
 param.command('put-all').action(() => paramPutAll(parseOption(param.opts())));

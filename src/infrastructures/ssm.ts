@@ -1,4 +1,5 @@
 import SSM, {
+    GetParameterRequest,
     GetParametersByPathRequest,
     PutParameterRequest,
 } from 'aws-sdk/clients/ssm';
@@ -49,3 +50,19 @@ export const ssmListParameters = async (
     } while (parameters.NextToken);
     return result;
 };
+
+// get
+export async function ssmGetParameter(
+    appName: string,
+    division: string,
+    stage: string,
+    name: string,
+): Promise<string> {
+    const searchPath = `/${appName}/${division}/${stage}/${name}`;
+    const parameters: GetParameterRequest = {
+        Name: searchPath,
+        WithDecryption: true,
+    };
+    const response = await ssm.getParameter(parameters).promise();
+    return response.Parameter?.Value || '';
+}

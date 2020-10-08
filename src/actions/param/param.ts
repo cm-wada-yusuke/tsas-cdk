@@ -1,6 +1,7 @@
 export type ParameterCommandOptions = {
     stage: string;
     division: string;
+    json?: boolean;
 };
 
 export type LocalVariable = {

@@ -13,7 +13,7 @@ tsasCdk.command('init', 'Init filles', {
 });
 tsasCdk.command(
     'param',
-    'Manage application parameters, [push-all|push-single|list]',
+    'Manage application parameters, [push-all|push-single|list|get]',
     { executableFile: path.join(__dirname, 'tsas-cdk-param.js') },
 );
 
